@@ -12,3 +12,116 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  background-color: rgb(18,106,179);
+  width: 100%;
+  height: 100%;
+}
+
+ .animated {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeInn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeInn {
+  -webkit-animation-name: fadeInn;
+  animation-name: fadeInn;
+}
+/*
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+} */
+
+.fadeOut{
+  opacity:0;
+  width:0;
+  height:0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+ 
+
+}
+.fadeIn{
+  opacity:1;
+  width:100px;
+  height:100px;
+  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+
+} 
+
+.me{
+  position: fixed;
+  top: 600px;
+  left: 400px;
+  z-index: 4;
+}
+.pokeme {
+  position: fixed;
+  top:400px;
+  left: 300px;
+  z-index: 3;
+}
+
+.enemy{
+  position: fixed;
+  top: 250px;
+  left: 1000px;
+  z-index: 2;
+}
+
+.pokeenemy{
+  position: fixed;
+  top: 100px;
+  left: 900px;
+  z-index: 1;
+}
+.pokemon-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.pokemon-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.pokemon-exit {
+  opacity: 1;
+}
+.pokemon-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.pokemon-detail {
+  width: 500px;
+  height: 100px;
+  background-color: wheat;
+}

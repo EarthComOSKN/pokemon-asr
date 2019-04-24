@@ -1,0 +1,221 @@
+{
+  "items" : [
+    {
+      "name": "Potion",
+      "amount": 10,
+      "effect": 20 
+    },
+    {
+      "name": "Super potion",
+      "amount": 5,
+      "effect": 50 
+    },
+    {
+      "name": "Hyper potion",
+      "amount": 2,
+      "effect": 200 
+    },
+    {
+      "name": "Max potion",
+      "amount": 1,
+      "effect": 2000 
+    }
+  ],
+  "my_pokemon": [
+    {
+      "name": "Dragonite",
+      "url": "./draback.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./draback.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./draback.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./draback.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    }
+  ],
+  "enemy": [
+    {
+      "name": "Dragonite",
+      "url": "./drafront.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./drafront.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./drafront.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./drafront.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    }
+  ]
+ 
+}
