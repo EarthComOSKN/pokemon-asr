@@ -1,17 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Aldrich', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 
 .bg {
   position: absolute;
@@ -121,20 +117,18 @@ code {
 }
 
 .pokemon-detail {
-  width: 500px;
-  height: 150px;
-  background-color: wheat;
+  /* bottom: 10px; */
   position: fixed;
   top: 500px;
   left: 800px;
+
 }
-.pokemon-detail-enemy {
-  width: 500px;
-  height: 150px;
-  background-color: wheat;
+.enemy-detail{
   position: fixed;
-  top: 125px;
-  left: 250px;
+  top: 100px;
+  left: 200px;  
+  /* left: 10px; */
+  /* position: relative; */
 }
 
 .bounce {
