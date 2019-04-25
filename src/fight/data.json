@@ -24,55 +24,7 @@
   "my_pokemon": [
     {
       "name": "Dragonite",
-      "url": "./kairyu-back.png",
-      "moves": [
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        }
-      ],
-      "hp": 150,
-      "lv": 100
-    },
-    {
-      "name": "Dragonite",
-      "url": "./kairyu-back.png",
-      "moves": [
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        }
-      ],
-      "hp": 150,
-      "lv": 100
-    },
-    {
-      "name": "Dragonite",
-      "url": "./kairyu-back.png",
+      "url": "./pokemon/kairyu-back.png",
       "moves": [
         {
           "name": "beam",
@@ -97,6 +49,54 @@
     {
       "name": "Dragonite",
       "url": "./pokemon/kairyu-back.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./pokemon/kairyu-back.png",
+      "moves": [
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        },
+        {
+          "name": "beam",
+          "damage": 200
+        }
+      ],
+      "hp": 150,
+      "lv": 100
+    },
+    {
+      "name": "Dragonite",
+      "url": "./pokemon/pokemon/kairyu-back.png",
       "moves": [
         {
           "name": "beam",
