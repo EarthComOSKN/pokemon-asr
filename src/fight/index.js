@@ -20,6 +20,7 @@ const Pokemon = styled.img`
 `
 
 const MyPokemon = ({pokemon,showMyPokemon,setBallShow}) => {
+  console.log('dsfds',pokemon);
   return (
     <span>
     <CSSTransition 
@@ -27,8 +28,7 @@ const MyPokemon = ({pokemon,showMyPokemon,setBallShow}) => {
         timeout={320}
         classNames="pokemon"
         unmountOnExit
-        onEnter={() => setBallShow(false)}
-        onExited={() => setBallShow(true)}>
+        onEnter={() => setBallShow(false)}>
 
       <Pokemon src={pokemon.url} className="pokeme" alt="" />
       </CSSTransition>
@@ -39,7 +39,10 @@ const MyPokemon = ({pokemon,showMyPokemon,setBallShow}) => {
         unmountOnExit
         >
 
-      <div className="pokemon-detail"></div>
+      <div className="pokemon-detail ">
+        <div>HP: {pokemon.hp}</div>
+        <div>LV: {pokemon.lv}</div>
+      </div>
       </CSSTransition>
 
       
@@ -49,16 +52,30 @@ const MyPokemon = ({pokemon,showMyPokemon,setBallShow}) => {
 
 const EnemyPokemon =({pokemon,showEnemyPokemon,setBallShow}) => {
   return (
+    <span>
     <CSSTransition 
         in={showEnemyPokemon}
         timeout={300}
         classNames="pokemon"
         unmountOnExit
-        onEnter={() => setBallShow(false)}
-        onExited={() => setBallShow(true)}>
+        onEnter={() => setBallShow(false)}>
 
       <Pokemon src={pokemon.url} className="pokeenemy" alt="" />
       </CSSTransition>
+      <CSSTransition 
+        in={showEnemyPokemon}
+        timeout={320}
+        classNames="pokemon"
+        unmountOnExit
+        >
+
+      <div className="pokemon-detail-enemy ">
+        <div>HP : {pokemon.hp}</div>
+        <div>LV: {pokemon.lv}</div>
+      </div>
+      </CSSTransition>
+
+    </span>
   )
 }
 
@@ -79,16 +96,22 @@ const Battle = () => {
       setMyPokemon(my_pokemon[0])
       setShowMyPokemon(true)
       setPopOut(Sound.status.PLAYING);
-    }, 5000);
+    }, 3000);
   }
   const selectEnemyPokemon = (num) => {
     setBallEnemyShow(true)
     setTimeout(() => {
-      setMyPokemon(enemy[0])
+      setEnemyPokemon(enemy[0])
       setShowEnemyPokemon(true)
       setPopOut(Sound.status.PLAYING);
       
-    }, 5000);
+    }, 3000);
+  }
+  const deSelectMyPokemon = () => {
+    setShowMyPokemon(false)
+  }
+  const deSelectEnemyPokemon = () => {
+    setShowEnemyPokemon(false)
   }
 
   useEffect(()=>{
@@ -100,10 +123,11 @@ const Battle = () => {
     
     <Sound url="/battle.mp4" playStatus={sound} autoLoad={true} />
     <Sound url="/popout.mp3" playStatus={popOut} onFinishedPlaying={()=>{setPopOut(Sound.status.STOPPED)}} autoLoad={true}/>
-    <button onClick={()=>{setShowMyPokemon(false)}}>dsfds</button>
-    <Pokeball className={(ballMeShow ? "fadeIn" : "fadeOut")+" me"} src="./pokeball.png" alt=""/>
-    <Pokeball className={(ballEnemyShow ? "fadeIn" : "fadeOut")+" enemy"} src="./pokeball.png" alt=""/>
-    <button onClick={()=>{selectMyPokemon(1)} }>test</button>
+    <button onClick={()=>{deSelectMyPokemon()}}>me Die</button>
+    <button onClick={()=>{selectMyPokemon(2)}}>me222 Die</button>
+    <Pokeball className={(ballMeShow ? "bounce" : "fadeOut")+" me"} src="./pokeball.png" alt=""/>
+    <Pokeball className={(ballEnemyShow ? "bounce" : "fadeOut")+" enemy"} src="./pokeball.png" alt=""/>
+    <button onClick={()=>{deSelectEnemyPokemon()} }>enemy Die</button>
     <MyPokemon pokemon={myPokemon} showMyPokemon={showMyPokemon} setBallShow={setBallMeShow} />
     <EnemyPokemon pokemon={enemyPokemon} showEnemyPokemon={showEnemyPokemon} setBallShow={setBallEnemyShow} />
     </Screen>
