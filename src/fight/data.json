@@ -24,7 +24,7 @@
   "my_pokemon": [
     {
       "name": "Dragonite",
-      "url": "./draback.png",
+      "url": "./kairyu-back.png",
       "moves": [
         {
           "name": "beam",
@@ -48,7 +48,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./draback.png",
+      "url": "./kairyu-back.png",
       "moves": [
         {
           "name": "beam",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./draback.png",
+      "url": "./kairyu-back.png",
       "moves": [
         {
           "name": "beam",
@@ -96,7 +96,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./draback.png",
+      "url": "./pokemon/kairyu-back.png",
       "moves": [
         {
           "name": "beam",
@@ -122,7 +122,7 @@
   "enemy": [
     {
       "name": "Dragonite",
-      "url": "./drafront.png",
+      "url": "./pokemon/kairyu-front.png",
       "moves": [
         {
           "name": "beam",
@@ -146,7 +146,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./drafront.png",
+      "url": "./pokemon/kairyu-front.png",
       "moves": [
         {
           "name": "beam",
@@ -170,7 +170,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./drafront.png",
+      "url": "./pokemon/kairyu-front.png",
       "moves": [
         {
           "name": "beam",
@@ -194,7 +194,7 @@
     },
     {
       "name": "Dragonite",
-      "url": "./drafront.png",
+      "url": "./pokemon/kairyu-front.png",
       "moves": [
         {
           "name": "beam",
