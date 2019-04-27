@@ -18,7 +18,7 @@ const Tail = styled.div`
     content: '';
     position: absolute;
     left: 394px;
-    top: 85px;
+    top: 110px;
     width: 0;
     height: 0;
     z-index: 1;

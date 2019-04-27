@@ -4,7 +4,7 @@ import Particles from "react-particles-js";
 import { CSSTransition } from 'react-transition-group';
 import data from './data.json';
 import Sound from "react-sound";
-import TextBox from '../components/TextBox';
+import TextBox from '../../components/TextBox';
 const Screen = styled.div`
   background: url('./bg-battle.png') no-repeat center center fixed;
   background-size: cover;
@@ -39,7 +39,7 @@ const MyPokemon = ({ pokemon, showMyPokemon, setBallShow }) => {
         classNames="pokemon"
         unmountOnExit
       >
-        <TextBox  className="pokemon-detail" name={pokemon.name} hp={pokemon.hp} lv={pokemon.lv} />
+        <TextBox className="pokemon-detail" name={pokemon.name} hp={pokemon.hp} lv={pokemon.lv} />
       </CSSTransition>
 
 
