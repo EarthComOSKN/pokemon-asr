@@ -20,7 +20,7 @@ const Pokeball = styled.img`
 const Pokemon = styled.img`
 `
 
-const MyPokemon = ({ pokemon, showMyPokemon, setBallShow }) => {
+const MyPokemon = ({ pokemon, showMyPokemon,myCurrentHp, setBallShow }) => {
   console.log('dsfds', pokemon);
   return (
     <span>
@@ -39,7 +39,7 @@ const MyPokemon = ({ pokemon, showMyPokemon, setBallShow }) => {
         classNames="pokemon"
         unmountOnExit
       >
-        <TextBox  className="pokemon-detail" name={pokemon.name} hp={pokemon.hp} lv={pokemon.lv} />
+        <TextBox  className="pokemon-detail" name={pokemon.name} currentHp={myCurrentHp} hp={pokemon.hp} lv={pokemon.lv} />
       </CSSTransition>
 
 
@@ -47,7 +47,7 @@ const MyPokemon = ({ pokemon, showMyPokemon, setBallShow }) => {
   )
 }
 
-const EnemyPokemon = ({ pokemon, showEnemyPokemon, setBallShow }) => {
+const EnemyPokemon = ({ pokemon, showEnemyPokemon,enemyCurrentHp, setBallShow }) => {
   return (
     <span>
       <CSSTransition
@@ -65,7 +65,7 @@ const EnemyPokemon = ({ pokemon, showEnemyPokemon, setBallShow }) => {
         classNames="pokemon"
         unmountOnExit
       >
-        <TextBox className="enemy-detail" name={pokemon.name} hp={2000} lv={pokemon.lv} />
+        <TextBox className="enemy-detail" name={pokemon.name} currentHp={enemyCurrentHp} hp={pokemon.hp} lv={pokemon.lv} />
       </CSSTransition>
 
     </span>
@@ -78,6 +78,8 @@ const Battle = () => {
   const [sound, setSound] = useState(Sound.status.PLAYING);
   const [popOut, setPopOut] = useState(Sound.status.STOPPED)
   const [myPokemon, setMyPokemon] = useState(my_pokemon[0])
+  const [myCurrentHp,setMyCurrentHp] = useState(0)
+  const [enemyCurrentHp,setEnemyCurrentHp] = useState(0)
   const [enemyPokemon, setEnemyPokemon] = useState(enemy[0])
   const [ballMeShow, setBallMeShow] = useState(false)
   const [ballEnemyShow, setBallEnemyShow] = useState(false)
@@ -88,6 +90,7 @@ const Battle = () => {
     setTimeout(() => {
       setMyPokemon(my_pokemon[0])
       setShowMyPokemon(true)
+      setMyCurrentHp(myPokemon.hp)
       setPopOut(Sound.status.PLAYING);
     }, 3000);
   }
@@ -96,6 +99,7 @@ const Battle = () => {
     setTimeout(() => {
       setEnemyPokemon(enemy[0])
       setShowEnemyPokemon(true)
+      setEnemyCurrentHp(enemyPokemon.hp)
       setPopOut(Sound.status.PLAYING);
 
     }, 3000);
@@ -106,6 +110,36 @@ const Battle = () => {
   const deSelectEnemyPokemon = () => {
     setShowEnemyPokemon(false)
   }
+  const playerMove = (index) =>{
+    const move = myPokemon.moves[index];
+    const remainingHP = enemyCurrentHp - move.damage < 0 ? 0 : enemyCurrentHp - move.damage;
+    setEnemyCurrentHp(remainingHP)
+    if(remainingHP ===0){
+      setTimeout(() => {
+        deSelectEnemyPokemon()
+      }, 800);
+      setTimeout(() => {
+        selectEnemyPokemon(2)
+      }, 3000);
+
+    }
+  }
+
+  const enemyMove = (index) =>{
+    const move = enemyPokemon.moves[index];
+    const remainingHP = myCurrentHp - move.damage < 0 ? 0 : myCurrentHp - move.damage;
+    setMyCurrentHp(remainingHP)
+    if(remainingHP ===0){
+      setTimeout(() => {
+        deSelectMyPokemon()
+      }, 800);
+      setTimeout(() => {
+        selectMyPokemon(2)
+      }, 3000);
+    
+    }
+  }
+  
 
   useEffect(() => {
     selectMyPokemon(1)
@@ -118,11 +152,13 @@ const Battle = () => {
       <Sound url="/popout.mp3" playStatus={popOut} onFinishedPlaying={() => { setPopOut(Sound.status.STOPPED) }} autoLoad={true} />
       <button onClick={() => { deSelectMyPokemon() }}>me Die</button>
       <button onClick={() => { selectMyPokemon(2) }}>me222 Die</button>
+      <button onClick={() => {playerMove(0)}}>atk</button>
+      <button onClick={() => {enemyMove(0)}}>atk me</button>
       <Pokeball className={(ballMeShow ? "bounce" : "fadeOut") + " me"} src="./pokeball.png" alt="" />
       <Pokeball className={(ballEnemyShow ? "bounce" : "fadeOut") + " enemy"} src="./pokeball.png" alt="" />
       <button onClick={() => { deSelectEnemyPokemon() }}>enemy Die</button>
-      <MyPokemon pokemon={myPokemon} showMyPokemon={showMyPokemon} setBallShow={setBallMeShow} />
-      <EnemyPokemon pokemon={enemyPokemon} showEnemyPokemon={showEnemyPokemon} setBallShow={setBallEnemyShow} />
+      <MyPokemon pokemon={myPokemon} myCurrentHp={myCurrentHp} showMyPokemon={showMyPokemon} setBallShow={setBallMeShow} />
+      <EnemyPokemon pokemon={enemyPokemon} enemyCurrentHp={enemyCurrentHp} showEnemyPokemon={showEnemyPokemon} setBallShow={setBallEnemyShow} />
 
     </Screen>
   )
