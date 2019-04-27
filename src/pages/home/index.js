@@ -8,6 +8,7 @@ const Screen = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
+  background-image: url('./bg-home.png')
 `;
 const Logo = styled.div`
   height: 100vh;
@@ -22,10 +23,9 @@ const Img = styled.img`
   margin-top: 5%;
 `;
 
-const StartButton = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: yellow;
+const StartButton = styled.a`
+    font-size: 50px;
+    color: yellow;
 `;
 
 const Home = () => {
@@ -38,9 +38,7 @@ const Home = () => {
       <Logo>
         <Img className="animated  fadeIn" src="./pokelogo.png" alt="" />
         <div style={{ marginTop: "300px" }}>
-          <StartButton>
-            <a href="/about">Start Game</a>{" "}
-          </StartButton>
+          <StartButton href="/battle">Start Game</StartButton>
         </div>
       </Logo>
     </Screen>
