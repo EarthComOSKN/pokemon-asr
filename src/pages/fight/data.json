@@ -28,7 +28,7 @@
       "moves": [
         {
           "name": "beam",
-          "damage": 200
+          "damage": 100
         },
         {
           "name": "beam",

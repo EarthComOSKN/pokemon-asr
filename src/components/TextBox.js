@@ -28,21 +28,14 @@ const Tail = styled.div`
     border-bottom: 0;
 `
 
-const TextBox = ({className, name, hp, lv }) => {
-    const [currentHP, setCurrentHP] = useState(hp)
-    const [damage,setDamage] = useState(0)
-    const Damage = (dmg) => {
-        const remainingHP = currentHP - damage < 0 ? 0 : currentHP - damage
-        setCurrentHP(remainingHP)
-        setDamage(dmg)
-        // console.log(currentHP,damage)
-    }
+const TextBox = ({className, name,currentHp,hp, lv }) => {
+
+    
     return (
         <div className={className}>
             {className}
             <Container><div className="d-flex justify-content-between">
-            <button onClick={()=>{Damage(20)}}>20</button>
-            <div>{name}</div><div>Lv.{lv}</div></div><HPBar hp={currentHP} maxHP={hp} /><div className="d-flex justify-content-end">{currentHP}/{hp}</div></Container>
+            <div>{name}</div><div>Lv.{lv}</div></div><HPBar hp={currentHp} maxHP={hp} /><div className="d-flex justify-content-end">{currentHp}/{hp}</div></Container>
             <Tail />
         </div>
 
