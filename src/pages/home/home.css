@@ -1,0 +1,25 @@
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.start {
+    animation: zoominoutsinglefeatured 1.5s infinite;
+    font-size: 50px;
+    color: black;
+    cursor: default;
+}
+
+start:hover {
+    color: black;
+    text-decoration: none;
+}

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import {withRouter} from 'react-router-dom';
 import styled from "styled-components";
 import Particles from "react-particles-js";
 import config from "./particlesjs-config.json";
 import Sound from "react-sound";
+import './home.css';
 
 const Screen = styled.div`
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-image: url('./bg-home.png')
+  background-image: url('./bg-home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;  
 `;
 const Logo = styled.div`
   height: 100vh;
@@ -19,16 +21,18 @@ const Logo = styled.div`
   display: block;
 `;
 const Img = styled.img`
-  width: 500px;
-  margin-top: 5%;
+  margin-top: 2em;
+  width: 40%;
+  height: 25%;
 `;
 
-const StartButton = styled.a`
-    font-size: 50px;
-    color: yellow;
-`;
+const Version = styled.div`
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 3px black;
+`
 
-const Home = () => {
+const Home = (props) => {
   const [sound, setSound] = useState(Sound.status.STOPPED);
   console.log(config);
   return (
@@ -36,13 +40,14 @@ const Home = () => {
       <Sound url="/battle.mp4" playStatus={sound} autoLoad={true} />
       <Particles className="bg" params={config} />
       <Logo>
-        <Img className="animated  fadeIn" src="./pokelogo.png" alt="" />
-        <div style={{ marginTop: "300px" }}>
-          <StartButton href="/battle">Start Game</StartButton>
+        <Img className="animated  fadeIn" src="./pokelogo.png" alt="pokemon title" />
+        <Version>ASR VERSION</Version>
+        <div style={{ marginTop: '15em' }}>
+          <div className="start" onClick={() => { props.history.push("/enemy") }}>Press Start</div>
         </div>
       </Logo>
     </Screen>
   );
 };
 
-export default Home;
+export default withRouter(Home);
