@@ -1,0 +1,19 @@
+.pic {
+    width: 30%;
+    height: 30%;
+}
+
+.kairyu {
+    width: 11%;
+    height: 11%;
+}
+
+.laplace {
+    width: 20%;
+    height: 20%;
+}
+
+.choose {
+    border: 5px solid rgb(60, 69, 30);
+    border-radius: 10px;
+}

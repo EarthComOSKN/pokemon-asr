@@ -1,221 +1,298 @@
 {
-  "items" : [
+  "items": [
     {
       "name": "Potion",
+      "url": "/potion/potion.png",
       "amount": 10,
-      "effect": 20 
+      "effect": 20
     },
     {
       "name": "Super potion",
+      "url": "/potion/superpotion.png",
       "amount": 5,
-      "effect": 50 
+      "effect": 50
     },
     {
       "name": "Hyper potion",
+      "url": "/potion/hyperpotion.png",
       "amount": 2,
-      "effect": 200 
+      "effect": 200
     },
     {
       "name": "Max potion",
-      "amount": 1,
-      "effect": 2000 
+      "url": "/potion/maxpotion.png",
+      "amount": 99,
+      "effect": 2000
     }
   ],
   "my_pokemon": [
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-back.png",
+      "name": "Kairyu",
+      "url": "/pokemon/kairyu-back.png",
+      "urlNormal": "/pokemon/kairyu.gif",
       "moves": [
         {
-          "name": "beam",
-          "damage": 100
+          "name": "wingattack",
+          "url": "/skill/wind.gif",
+          "damage": 51
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "hyperbeam",
+          "url": "/skill/hyperbeam.gif",
+          "damage": 231
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "dragonclaw",
+          "url": "/skill/claw.gif",
+          "damage": 521
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "dragonrage",
+          "url": "/skill/rage.gif",
+          "damage": 700
         }
       ],
-      "hp": 150,
+      "hp": 1211,
+      "maxHp": 1211,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-back.png",
+      "name": "Koiking",
+      "url": "/pokemon/koiking-back.png",
+      "urlNormal": "/pokemon/koiking.gif",
       "moves": [
         {
-          "name": "beam",
+          "name": "splash",
+          "url": "/skill/water.gif",
           "damage": 200
         },
         {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
+          "name": "dint",
+          "url": "/skill/water.gif",
           "damage": 200
         }
       ],
-      "hp": 150,
+      "hp": 900,
+      "maxHp": 900,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-back.png",
+      "name": "Lizardon",
+      "url": "/pokemon/lizardon-back.png",
+      "urlNormal": "/pokemon/lizardon.gif",
       "moves": [
         {
-          "name": "beam",
-          "damage": 200
+          "name": "wingattack",
+          "url": "/skill/wind.gif",
+          "damage": 123
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "flamethrower",
+          "url": "/skill/fire.gif",
+          "damage": 212
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "dragonclaw",
+          "url": "/skill/claw.gif",
+          "damage": 314
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "dragonrage",
+          "url": "/skill/rage.gif",
+          "damage": 511
         }
       ],
-      "hp": 150,
+      "hp": 1500,
+      "maxHp": 1500,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/pokemon/kairyu-back.png",
+      "name": "Pikachu",
+      "url": "/pokemon/pikachu-back.png",
+      "urlNormal": "/pokemon/pikachu.gif",
       "moves": [
         {
-          "name": "beam",
-          "damage": 200
+          "name": "thunderbolt",
+          "url": "/skill/thunderbolt.gif",
+          "damage": 141
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "bodyslam",
+          "url": "/skill/bodyslam.jpg",
+          "damage": 999
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "irontail",
+          "url": "/skill/irontail.gif",
+          "damage": 322
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "quickattack",
+          "url": "/skill/quickattack.gif",
+          "damage": 412
         }
       ],
-      "hp": 150,
+      "hp": 1500,
+      "maxHp": 1500,
+      "lv": 100
+    },
+    {
+      "name": "Laplace",
+      "url": "/pokemon/laplace-back.png",
+      "urlNormal": "/pokemon/laplace.gif",
+      "moves": [
+        {
+          "name": "surf",
+          "url": "/skill/surf.gif",
+          "damage": 196
+        },
+        {
+          "name": "icebeam",
+          "url": "/skill/icebeam.gif",
+          "damage": 241
+        },
+        {
+          "name": "hydropump",
+          "url": "/skill/hydropump.jpg",
+          "damage": 157
+        },
+        {
+          "name": "bodyslam",
+          "url": "/skill/bodyslam.jpg",
+          "damage": 999
+        }
+      ],
+      "hp": 1500,
+      "maxHp": 1500,
+      "lv": 100
+    },
+    {
+      "name": "Mewtwo",
+      "url": "/pokemon/mewtwo-back.png",
+      "urlNormal": "/pokemon/mewtwo.gif",
+      "moves": [
+        {
+          "name": "phychic",
+          "url": "/skill/phychic.jpg",
+          "damage": 123
+        },
+        {
+          "name": "phybeam",
+          "url": "/skill/phybeam.gif",
+          "damage": 431
+        },
+        {
+          "name": "swift",
+          "url": "/skill/swift.gif",
+          "damage": 351
+        },
+        {
+          "name": "confusion",
+          "url": "/skill/confusion.gif",
+          "damage": 999
+        }
+      ],
+      "hp": 1500,
+      "maxHp": 1500,
       "lv": 100
     }
   ],
   "enemy": [
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-front.png",
+      "name": "Atiwong",
+      "url": "/enemy/atiwong.jpg",
       "moves": [
         {
-          "name": "beam",
+          "name": "Counting Attack",
+          "url": "",
+          "damage": 500
+        },
+        {
+          "name": "ASR Attack",
+          "url": "",
           "damage": 200
         },
         {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
+          "name": "MIT Attack",
+          "url": "",
+          "damage": 100
         }
       ],
-      "hp": 150,
+      "hp": 5000,
+      "maxHp": 5000,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-front.png",
+      "name": "Ekapol",
+      "url": "/enemy/Ekapol.jpg",
       "moves": [
         {
-          "name": "beam",
+          "name": "Com Sys Arch Attack",
+          "url": "",
+          "damage": 100
+        },
+        {
+          "name": "ASR Attack",
+          "url": "",
           "damage": 200
         },
         {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
+          "name": "Pattern Attack",
+          "url": "",
           "damage": 200
         }
       ],
-      "hp": 150,
+      "hp": 4444,
+      "maxHp": 4444,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-front.png",
+      "name": "Nattee",
+      "url": "/enemy/nattee.jpg",
       "moves": [
         {
-          "name": "beam",
+          "name": "Com Eng Math Attack",
+          "url": "",
           "damage": 200
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "Algorithm Attack",
+          "url": "",
+          "damage": 555
         },
         {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
+          "name": "Data Structure Attack",
+          "url": "",
+          "damage": 300
         }
       ],
-      "hp": 150,
+      "hp": 3000,
+      "maxHp": 3000,
       "lv": 100
     },
     {
-      "name": "Dragonite",
-      "url": "./pokemon/kairyu-front.png",
+      "name": "Peerapon",
+      "url": "/enemy/peerapon.jpg",
       "moves": [
         {
-          "name": "beam",
-          "damage": 200
+          "name": "Coke Attack",
+          "url": "",
+          "damage": 999
         },
         {
-          "name": "beam",
-          "damage": 200
+          "name": "Red Bull Attack",
+          "url": "",
+          "damage": 10000
         },
         {
-          "name": "beam",
-          "damage": 200
-        },
-        {
-          "name": "beam",
-          "damage": 200
+          "name": "Data Sci Attack",
+          "url": "",
+          "damage": 300
         }
       ],
-      "hp": 150,
+      "hp": 7000,
+      "maxHp": 7000,
       "lv": 100
     }
   ]
- 
 }
