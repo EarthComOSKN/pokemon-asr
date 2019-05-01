@@ -8,7 +8,7 @@ const Container = styled.div`
 	left: 90%;
 	top: 85%;
 `;
-const Mic = () => {
+const Mic = (props) => {
 	const _onRecordingComplete = async (blob) => {
 		try {
 			console.log('recording', blob);
@@ -16,6 +16,7 @@ const Mic = () => {
 			form_data.append('file', blob);
 			const res = await Axios.post('http://localhost:5000/rec',form_data)
 			console.log(res);
+			props.getSpeech(res.data)
 			
 		} catch (error) {
 			

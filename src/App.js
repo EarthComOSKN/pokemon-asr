@@ -26,7 +26,7 @@ const App = props => {
 			<Route path="/enemy" component={Enemy} />
 			<Route path="/pokemon" component={Pokemon} />
 			<Sound url="/choose.mp3" playStatus={sound} autoLoad={true} volume={50} />
-			<Mic />
+			<Mic getSpeech={e => console.log('speechhhhh',e)} />
 		</div>
 	);
 };
