@@ -151,7 +151,7 @@ const Battle = () => {
 		setShowEnemyPokemon(false);
 	};
 	const playerMove = index => {
-		if (playerTurn && !showEnemyAttack && !useEnemySkill) {
+		if (playerTurn && !showEnemyAttack && !useEnemySkill && showEnemyPokemon) {
 			setPlayerTurn(false);
 			const move = myPokemon.moves[index];
 			const remainingHP = enemyCurrentHp - move.damage < 0 ? 0 : enemyCurrentHp - move.damage;
