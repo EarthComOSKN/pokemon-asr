@@ -4,3 +4,8 @@
     right: 460px;
     z-index: 10;
 }
+
+.skill {
+    font-size: 30px;
+    cursor: default;
+}

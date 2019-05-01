@@ -110,6 +110,7 @@ const Battle = () => {
 	const [useItem, setUseItem] = useState(false);
 	const [enemyAttack, setEnemyAttack] = useState('');
 	const [showEnemyAttack, setShowEnemyAttack] = useState(false);
+	const [playerTurn, setPlayerTurn] = useState(false);
 
 	const selectMyPokemon = pokemon => {
 		console.log('chhooooose pokemon', pokemon);
@@ -125,12 +126,14 @@ const Battle = () => {
 		}, 3000);
 	};
 	const selectEnemyPokemon = enemy => {
+		setPlayerTurn(false);
 		console.log('chhooooose enemy', enemy, listEnemy);
 		setBallEnemyShow(true);
 		let temp = listEnemy;
 		const index = temp.indexOf(enemy);
 		temp.splice(index, 1);
 		setTimeout(() => {
+			setPlayerTurn(true);
 			setEnemyPokemon(enemy);
 			setShowEnemyPokemon(true);
 			setEnemyCurrentHp(enemy.hp);
@@ -148,41 +151,45 @@ const Battle = () => {
 		setShowEnemyPokemon(false);
 	};
 	const playerMove = index => {
-		const move = myPokemon.moves[index];
-		const remainingHP = enemyCurrentHp - move.damage < 0 ? 0 : enemyCurrentHp - move.damage;
-		setEnemyCurrentHp(remainingHP);
-		console.log('player', move);
-		if (move.name === 'bodyslam') {
-			setAttackSong('/bodyslam.mp3');
-		}
-		if (remainingHP === 0) {
-			setTimeout(() => {
-				if (listEnemy.length > 0) deSelectEnemyPokemon();
-			}, 800);
-			setTimeout(() => {
-				if (listEnemy.length > 0) selectEnemyPokemon(listEnemy[0]);
-				else {
-					setWin(true);
-					setSong('/win.mp3');
-				}
-			}, 3000);
-		} else {
+		if (playerTurn && !showEnemyAttack && !useEnemySkill) {
+			setPlayerTurn(false);
+			const move = myPokemon.moves[index];
+			const remainingHP = enemyCurrentHp - move.damage < 0 ? 0 : enemyCurrentHp - move.damage;
+			setEnemyCurrentHp(remainingHP);
+			console.log('player', move);
+			if (move.name === 'bodyslam') {
+				setAttackSong('/bodyslam.mp3');
+			}
+			if (remainingHP === 0) {
+				//enemy
+				setTimeout(() => {
+					if (listEnemy.length > 0) deSelectEnemyPokemon();
+				}, 800);
+				setTimeout(() => {
+					if (listEnemy.length > 0) selectEnemyPokemon(listEnemy[0]);
+					else {
+						setWin(true);
+						setSong('/win.mp3');
+					}
+				}, 3000);
+			}
 			setAttackSound(Sound.status.PLAYING);
 			setTimeout(() => {
-				setAttackSound(Sound.status.STOPPED);
 				setAttackSong('/attack.mp3');
 				const random = Math.floor(Math.random() * 3);
-				enemyMove(random);
+				if (remainingHP !== 0) enemyMove(random);
+				setPlayerTurn(true);
 			}, 1100);
 		}
 	};
 
 	const enemyMove = index => {
-		console.log(index);
+		setPlayerTurn(false);
 		const move = enemyPokemon.moves[index];
 		const remainingHP = myCurrentHp - move.damage < 0 ? 0 : myCurrentHp - move.damage;
 		setMyCurrentHp(remainingHP);
 		if (remainingHP === 0) {
+			//pokemon
 			const index = listPokemon.indexOf(myPokemon);
 			const deadPokemon = listPokemon.splice(index, 1);
 			setListPokemon(listPokemon);
@@ -191,21 +198,20 @@ const Battle = () => {
 			setTimeout(() => {
 				deSelectMyPokemon();
 			}, 800);
-		} else {
-			setAttackSound(Sound.status.PLAYING);
-			setShowEnemyAttack(true);
-			setEnemyAttack(move.name);
-			setTimeout(() => {
-				setAttackSound(Sound.status.STOPPED);
-				setShowEnemyAttack(false);
-			}, 1000);
-			listPokemon.forEach((i, index) => {
-				if (i.name === myPokemon.name) {
-					listPokemon[index].hp = remainingHP;
-				}
-			});
-			console.log(listPokemon);
 		}
+		setAttackSound(Sound.status.PLAYING);
+		setShowEnemyAttack(true);
+		setEnemyAttack(move.name);
+		setTimeout(() => {
+			setShowEnemyAttack(false);
+			setPlayerTurn(true);
+		}, 1000);
+		listPokemon.forEach((i, index) => {
+			if (i.name === myPokemon.name) {
+				listPokemon[index].hp = remainingHP;
+			}
+		});
+		console.log(listPokemon);
 	};
 	const setItem = selectedItem => {
 		items.forEach((i, index) => {
@@ -225,14 +231,13 @@ const Battle = () => {
 		my_pokemon.forEach(p => {
 			const pokemon = localStorage.getItem('pokemon');
 			if (pokemon === p.name) {
-				setMyPokemon(p);
 				selectMyPokemon(p);
 			}
 		});
 		enemy.forEach(e => {
 			const ene = localStorage.getItem('enemy');
+			console.log('ene', ene);
 			if (ene === e.name) {
-				setEnemyPokemon(e);
 				selectEnemyPokemon(e);
 			}
 		});
@@ -240,30 +245,31 @@ const Battle = () => {
 	return (
 		<Screen className="animated fadeInn">
 			<Sound url={song} playStatus={sound} autoLoad={true} volume={10} />
-			{/* <Sound
+			<Sound
 				url="/popout.mp3"
 				playStatus={popOut}
 				onFinishedPlaying={() => {
 					setPopOut(Sound.status.STOPPED);
 				}}
 				autoLoad={true}
-			/> */}
-			<Sound url={attackSong} playStatus={attackSound} autoLoad={true} volume={30} />
-			<button
-				onClick={() => {
-					deSelectMyPokemon();
+				volume={10}
+			/>
+			<Sound
+				url="/alert.mp3"
+				playStatus={!start && !win && !showEnemyPokemon ? Sound.status.PLAYING : Sound.status.STOPPED}
+				autoLoad={true}
+				volume={20}
+			/>
+			<Sound
+				url={attackSong}
+				playStatus={attackSound}
+				autoLoad={true}
+				volume={30}
+				onFinishedPlaying={() => {
+					setAttackSound(Sound.status.STOPPED);
 				}}
-			>
-				me Die
-			</button>
-			<button
-				onClick={() => {
-					selectMyPokemon(2);
-				}}
-			>
-				me222 Die
-			</button>
-			<button
+			/>
+			{/* <button
 				onClick={() => {
 					playerMove(0);
 				}}
@@ -276,7 +282,7 @@ const Battle = () => {
 				}}
 			>
 				atk me
-			</button>
+			</button> */}
 			<button
 				onClick={() => {
 					setShowMyPokemon(false);
@@ -291,23 +297,30 @@ const Battle = () => {
 			>
 				use item
 			</button>
-			{myPokemon.moves &&
-				myPokemon.moves.map((skill, index) => {
-					return (
-						<button
-							onClick={() => {
-								playerMove(index);
-								setPokemonSkill(skill);
-								setUsePokemonSkill(true);
-								setTimeout(() => {
-									setUsePokemonSkill(false);
-								}, 1000);
-							}}
-						>
-							{skill.name}
-						</button>
-					);
-				})}
+			<div className="d-flex justify-content-center mt-3 skill">
+				{myPokemon.moves &&
+					myPokemon.moves.map((skill, index) => {
+						return (
+							<div
+								className="d-flex"
+								onClick={() => {
+									playerMove(index);
+									if (playerTurn && !showEnemyAttack && !useEnemySkill) {
+										setPokemonSkill(skill);
+										setUsePokemonSkill(true);
+										setTimeout(() => {
+											setUsePokemonSkill(false);
+										}, 1000);
+									}
+								}}
+							>
+								{skill.name}
+								<div className="mr-2 ml-2">/</div>
+							</div>
+						);
+					})}
+			</div>
+
 			<Pokeball className={(ballMeShow ? 'bounce' : 'fadeOut') + ' me'} src="./pokeball.png" alt="" />
 			<Pokeball className={(ballEnemyShow ? 'bounce' : 'fadeOut') + ' enemy'} src="./pokeball.png" alt="" />
 			<MyPokemon
@@ -345,3 +358,4 @@ export default Battle;
 //อย่าเลือก อาจารย์อติวงศ์
 //item -1 aaaa T^T
 // อาจารย์เด้ง2รอบตอนเปลี่ยน turn อาจารย์
+// ตีเบิ้ลตอนใช้ body slam

@@ -6,6 +6,7 @@ import './App.css';
 import Battle from './pages/fight';
 import Pokemon from './pages/pokemon';
 import Sound from 'react-sound';
+import Mic from './components/Mic';
 const Post = () => <h1>Post</h1>;
 const Project = () => <h1>Project</h1>;
 const App = props => {
@@ -25,6 +26,7 @@ const App = props => {
 			<Route path="/enemy" component={Enemy} />
 			<Route path="/pokemon" component={Pokemon} />
 			<Sound url="/choose.mp3" playStatus={sound} autoLoad={true} volume={50} />
+			<Mic />
 		</div>
 	);
 };

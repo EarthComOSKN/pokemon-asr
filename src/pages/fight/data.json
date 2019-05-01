@@ -172,12 +172,12 @@
       "urlNormal": "/pokemon/mewtwo.gif",
       "moves": [
         {
-          "name": "phychic",
+          "name": "psychic",
           "url": "/skill/phychic.jpg",
           "damage": 123
         },
         {
-          "name": "phybeam",
+          "name": "psybeam",
           "url": "/skill/phybeam.gif",
           "damage": 431
         },
@@ -188,7 +188,7 @@
         },
         {
           "name": "confusion",
-          "url": "/skill/confusion.gif",
+          "url": "/skill/confusion.jpg",
           "damage": 999
         }
       ],
