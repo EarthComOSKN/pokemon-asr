@@ -11,6 +11,7 @@ const Post = () => <h1>Post</h1>;
 const Project = () => <h1>Project</h1>;
 const App = props => {
 	const [sound, setSound] = useState(Sound.status.STOP);
+	const [speech,setSpeech] = useState('')
 	useEffect(() => {
 		console.log(props.location.pathname);
 		if (props.location.pathname.includes('/enemy') || props.location.pathname.includes('/pokemon'))
@@ -19,14 +20,14 @@ const App = props => {
 	}, [props]);
 	return (
 		<div className="App">
-			<Route exact path="/" component={Home} />
-			<Route path="/battle" component={Battle} />
-			<Route path="/posts" component={Post} />
-			<Route path="/projects" component={Project} />
-			<Route path="/enemy" component={Enemy} />
-			<Route path="/pokemon" component={Pokemon} />
+			<Route exact path="/" render={ (props) => <Home {...props} speech={speech} />} />
+			<Route path="/battle" render={ (props) => <Battle {...props} speech={speech} />} />
+			<Route path="/posts" render={ (props) => <Post {...props} speech={speech} />} />
+			<Route path="/projects" render={ (props) => <Project {...props} speech={speech} />} />
+			<Route path="/enemy" render={ (props) => <Enemy {...props} speech={speech} />} />
+			<Route path="/pokemon" render={(props) => <Pokemon {...props} speech={speech} />} />
 			<Sound url="/choose.mp3" playStatus={sound} autoLoad={true} volume={50} />
-			<Mic getSpeech={e => console.log('speechhhhh',e)} />
+			<Mic getSpeech={e => {setSpeech(e.data)}} />
 		</div>
 	);
 };

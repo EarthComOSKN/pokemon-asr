@@ -34,11 +34,17 @@ const Version = styled.div`
 
 const Home = props => {
 	const [sound, setSound] = useState(Sound.status.PLAYING);
+
 	useEffect(() => {
 		setTimeout(() => {
 			setSound(Sound.status.PLAYING);
 		}, 100);
 	}, []);
+	useEffect(() => {
+		console.log('command',props.speech);
+		let n = props.speech.includes("โกวาจี");
+		if(n) props.history.push('/enemy');
+	}, [props.speech])
 	return (
 		<Screen>
 			<Sound url="/home.mp3" playStatus={sound} autoLoad={true} volume={10} />
@@ -53,7 +59,7 @@ const Home = props => {
 							props.history.push('/enemy');
 						}}
 					>
-						Press Start
+						Gowajee Start
 					</div>
 				</div>
 			</Logo>

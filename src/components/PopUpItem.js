@@ -3,7 +3,7 @@ import './PopUpItem.css';
 
 const PopUpItem = props => {
 	const [confirm, setConfirm] = useState(false);
-	const [selectedPotion, setSelectedPotion] = useState('');
+	const [selectedPotion, setSelectedPotion] = useState(props.medic);
 	useEffect(() => {
 		setConfirm(false);
 	}, [props.isHidden]);
